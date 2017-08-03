@@ -9,12 +9,12 @@
                     <article class="swiper-slide dark" style="background-image: url('img/frontend/slider/indiogigante2.jpg');">
                         <div class="container clearfix">
                             <div class="slider-caption slider-caption-center">
-                                <h2 data-caption-animate="fadeInUp">Welcome to Canvas</h2>
-                                <p data-caption-animate="fadeInUp" data-caption-delay="200">Create just what you need for your Perfect Website. Choose from a wide range of Elements &amp; simply put them on your own Canvas.</p>
+                                <h2 data-caption-animate="fadeInUp" style="text-shadow:#000 1px -1px 2px, #000 -1px 1px 2px, #000 1px 1px 2px, #000 -1px -1px 2px">Indio Gigante Chideroli</h2>
+                                <p data-caption-animate="fadeInUp" data-caption-delay="200" style="text-shadow:#000 1px -1px 2px, #000 -1px 1px 2px, #000 1px 1px 2px, #000 -1px -1px 2px">Os melhores animais da raça num só lugar! Veja agora os melhores galos indio gigante do Criatório Chideroli. Faça seu orçamento sem compromisso.</p>
                             </div>
                         </div>
                     </article>
-                    <article class="swiper-slide dark">
+                    <article class="swiper-slide dark" style="background-image: url('img/frontend/slider/indiogigante.jpg');">
                         <div class="container clearfix">
                             <div class="slider-caption slider-caption-center">
                                 <h2 data-caption-animate="fadeInUp">Beautifully Flexible</h2>
@@ -62,8 +62,8 @@
                         <div class="col-lg-7">
 
                             <div style="position: relative; margin-bottom: -60px;" class="ohidden" data-height-lg="426" data-height-md="567" data-height-sm="470" data-height-xs="287" data-height-xxs="183">
-                                <img src="img/frontend/services/main-fbrowser.png" style="position: absolute; top: 0; left: 0;" data-animate="fadeInUp" data-delay="100" alt="Chrome">
-                                <img src="img/frontend/services/main-fmobile.png" style="position: absolute; top: 0; left: 0;" data-animate="fadeInUp" data-delay="400" alt="iPad">
+                                <img src="img/frontend/galo.jpg" style="position: absolute; top: 0; left: 0;" data-animate="fadeInUp" data-delay="100" alt="Chrome">
+                                <img src="img/frontend/galo.jpg" style="position: absolute; top: 0; left: 0;" data-animate="fadeInUp" data-delay="400" alt="iPad">
                             </div>
 
                         </div>

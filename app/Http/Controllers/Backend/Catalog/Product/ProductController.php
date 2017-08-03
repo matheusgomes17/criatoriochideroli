@@ -35,7 +35,7 @@ class ProductController extends Controller
     public function index(ManageProductRequest $request)
     {
         $products = $this->products->getAll();
-        
+
         return view('backend.catalog.index', compact('products'));
     }
 
@@ -84,7 +84,6 @@ class ProductController extends Controller
      */
     public function update(Product $product, UpdateProductRequest $request)
     {
-        //dd($request->all());
         $this->products->update($product, ['data' => $request->all()]);
 
         return redirect()->route('admin.catalog.product.index')->withFlashSuccess(trans('alerts.backend.products.updated'));

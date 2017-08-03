@@ -51,13 +51,18 @@ class EventServiceProvider extends ServiceProvider
         \SKT\Listeners\Backend\Access\Role\RoleEventListener::class,
 
         /*
+         * Blog Subscribers
+         */
+        \SKT\Listeners\Backend\Blog\Post\PostEventListener::class,
+
+        /*
          * Catalog Subscribers
          */
         \SKT\Listeners\Backend\Catalog\Category\CategoryEventListener::class,
         \SKT\Listeners\Backend\Catalog\Product\ProductEventListener::class,
         \SKT\Listeners\Backend\Catalog\Order\OrderEventListener::class,
         \SKT\Listeners\Backend\Catalog\Order\OrderAnswerEventListener::class,
-        
+
         /*
          * System Subscribers
          */

@@ -52,6 +52,11 @@ class RouteServiceProvider extends ServiceProvider
 
             return Product::withTrashed()->where($product->getRouteKeyName(), $value)->first();
         });
+        $this->bind('deletedPost', function ($value) {
+            $post = new Post();
+
+            return Post::withTrashed()->where($post->getRouteKeyName(), $value)->first();
+        });
 
         parent::boot();
     }
