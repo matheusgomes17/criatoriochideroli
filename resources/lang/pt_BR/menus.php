@@ -60,6 +60,17 @@ return [
                 'main'        => 'Orçamentos',
             ],
         ],
+        'blog' => [
+            'title' => 'Gerenciamento de Postagens',
+            'posts' => [
+                'all'         => 'Todos as Postagens',
+                'create'      => 'Criar Postagem',
+                'deleted'     => 'Excluir Postagem',
+                'edit'        => 'Editar Postagem',
+                'management'  => 'Gerenciamento de Postagens',
+                'main'        => 'Postagens',
+            ],
+        ],
         'system' => [
             'title' => 'Gerenciamento de Contatos',
             'contacts' => [

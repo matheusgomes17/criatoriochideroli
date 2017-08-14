@@ -158,6 +158,22 @@ return [
                 ],
             ],
         ],
+        'blog' => [
+            'posts' => [
+                'active' => 'Todos as Postagens',
+                'deactivated' => 'Desativar Postagem',
+                'deleted' => 'Excluir Postagem',
+                'create' => 'Criar Postagem',
+                'edit' => 'Editar Postagem',
+                'management' => 'Gerenciado Postagens',
+                'table' => [
+                    'id' => 'ID.',
+                    'title' => 'Nome',
+                    'create' => 'Criado em',
+                    'last_updated' => 'Última atualização',
+                ],
+            ],
+        ],
         'system' => [
             'contacts' => [
                 'pending' => 'Responder Contatos',

@@ -20,8 +20,8 @@
             {{ Form::text('q', Request::get('q'), ['class' => 'form-control', 'required' => 'required', 'placeholder' => trans('strings.backend.general.search_placeholder')]) }}
 
             <span class="input-group-btn">
-                    <button type='submit' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
-                  </span><!--input-group-btn-->
+                <button type='submit' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
+            </span><!--input-group-btn-->
         </div><!--input-group-->
         {{ Form::close() }}
         <!-- /.search form -->
@@ -95,6 +95,15 @@
                         </a>
                     </li>
                 </ul>
+            </li>
+            @endauth
+
+            @role(1)
+            <li class="{{ active_class(Active::checkUriPattern('admin/blog/post')) }}">
+                <a href="{{ route('admin.blog.post.index') }}">
+                    <i class="fa fa-address-card-o"></i>
+                    <span>Gerenciando Postagens</span>
+                </a>
             </li>
             @endauth
 
