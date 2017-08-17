@@ -65,7 +65,7 @@
                             <div class="col-md-12">
                                 <p>Employment respond committed meaningful fight against oppression social challenges rural legal aid governance. Meaningful work, implementation, process cooperation, campaign inspire.</p>
                                 <p>Advancement, promising development John Lennon, our ambitions involvement underprivileged billionaire philanthropy save the world transform. Carbon rights maintain healthcare emergent, implementation inspire social change solve clean water livelihoods.</p>
-                                <a title="Curta no Facebook" href="#" class="social-icon inline-block si-small si-light si-rounded si-facebook">
+                                <a title="Curta no Facebook" href="https://facebook.com/junior.chideroli"  rel="nofollow" class="social-icon inline-block si-small si-light si-rounded si-facebook">
                                     <i class="icon-facebook"></i>
                                     <i class="icon-facebook"></i>
                                 </a>

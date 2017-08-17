@@ -416,7 +416,7 @@
 		float: none;
 		margin: 0 !important;
 		text-align: left !important;
-		border-top: 1px solid #EEE;
+		border-bottom: 1px solid #EEE;
 	}
 
 	#header.split-menu #primary-menu:not(.mobile-menu-off-canvas) > ul:not(:first-child) > li:first-child { border-top: 1px solid #EEE; }
@@ -1851,4 +1851,3 @@ only screen and (                min-resolution: 2dppx) and (max-width: 991px) {
 	#logo a.standard-logo { display: none; }
 	#logo a.retina-logo { display: inline-block; }
 }
-

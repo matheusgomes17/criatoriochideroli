@@ -72,7 +72,7 @@
                         <div class="si-share noborder clearfix">
                             <span>Compartilhe:</span>
                             <div>
-                                <a title="Compartilhe no Facebook" href="#" class="social-icon si-borderless si-facebook">
+                                <a title="Compartilhe no Facebook" data-href="{{ route('frontend.product', $product->id) }}" href="#" class="social-icon si-borderless si-facebook">
                                     <i class="icon-facebook"></i>
                                     <i class="icon-facebook"></i>
                                 </a>
@@ -87,7 +87,9 @@
 
                     <div class="col_one_fifth col_last">
 
-                        <a href="#" title="Brand Logo" class="hidden-xs"><img class="image_fade" src="images/shop/brand.jpg" alt="Brand Logo"></a>
+                        <a href="#" title="{{ env('APP_NAME') }}" class="hidden-xs">
+                          <img class="image_fade" src="/img/frontend/logo.png" alt="{{ env('APP_NAME') }}">
+                        </a>
 
                         <div class="divider divider-center"><i class="icon-circle-blank"></i></div>
 

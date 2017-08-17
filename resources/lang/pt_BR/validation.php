@@ -163,6 +163,16 @@ return [
                     'description' => 'Descrição',
                 ],
             ],
+            'blog' => [
+                'posts' => [
+                    'title' => 'Título',
+                    'cover' => 'Capa',
+                    'cover-info' => '',
+                    'subtitle' => 'Sub-título',
+                    'body' => 'Postagem',
+                    'meta_description' => 'META Descrição',
+                ],
+            ],
             'system' => [
                 'galleries' => [
                     'name' => 'Nome',

@@ -85,17 +85,17 @@
 
                     <div class="widget noborder notoppadding">
 
-                        <a itemprop="url" href="https://www.facebook.com/" title="Curta no Facebook" rel="nofollow" class="social-icon si-small si-dark si-facebook">
+                        <a itemprop="url" href="{{ env('FACEBOOK_SOCIAL_LINK') }}" target="_blank" title="Curta no Facebook" rel="nofollow" class="social-icon si-small si-dark si-facebook">
                             <i class="icon-facebook"></i>
                             <i class="icon-facebook"></i>
                         </a>
 
-                        <a itemprop="url" href="https://www.twitter.com/" title="Faça um Twitter!" rel="nofollow" class="social-icon si-small si-dark si-twitter">
+                        <a itemprop="url" href="{{ env('TWITTER_SOCIAL_LINK') }}" target="_blank" title="Faça um Twitter!" rel="nofollow" class="social-icon si-small si-dark si-twitter">
                             <i class="icon-twitter"></i>
                             <i class="icon-twitter"></i>
                         </a>
 
-                        <a itemprop="url" href="https://www.plus.google.com/" title="Acesse o Google+" rel="nofollow" class="social-icon si-small si-dark si-gplus">
+                        <a itemprop="url" href="{{ env('GOOGLEPLUS_SOCIAL_LINK') }}" target="_blank" title="Acesse o Google+" rel="nofollow" class="social-icon si-small si-dark si-gplus">
                             <i class="icon-gplus"></i>
                             <i class="icon-gplus"></i>
                         </a>

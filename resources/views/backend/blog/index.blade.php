@@ -26,10 +26,7 @@
                     <thead>
                         <tr>
                             <th>{{ trans('labels.backend.blog.posts.table.id') }}</th>
-                            <th>{{ trans('labels.backend.blog.posts.table.name') }}</th>
-                            <th>{{ trans('labels.backend.blog.posts.table.category') }}</th>
-                            <th>{{ trans('labels.backend.blog.posts.table.status') }}</th>
-                            <th>{{ trans('labels.backend.blog.posts.table.sold') }}</th>
+                            <th>{{ trans('labels.backend.blog.posts.table.title') }}</th>
                             <th>{{ trans('labels.backend.blog.posts.table.create') }}</th>
                             <th>{{ trans('labels.backend.blog.posts.table.last_updated') }}</th>
                             <th>{{ trans('labels.general.actions') }}</th>
@@ -39,10 +36,7 @@
                         @foreach ($posts as $post)
                             <tr>
                                 <td>{{ $post->id }}</td>
-                                <td>{{ $post->name }}</td>
-                                <td>{{ $post->category }}</td>
-                                <td>{!! $post->status_label !!}</td>
-                                <td>{!! $post->sold_label !!}</td>
+                                <td>{{ str_limit($post->title, 80) }}</td>
                                 <td>{{ $post->created_at }}</td>
                                 <td>{{ $post->updated_at }}</td>
                                 <td>{!! $post->action_buttons !!}</td>

@@ -35,6 +35,10 @@ Route::group(['prefix' => 'carrinho', 'namespace' => 'Cart'], function () {
     });
 });
 
+Route::group(['prefix' => 'blog', 'namespace' => 'Blog'], function () {
+    Route::get('post/{id}', 'BlogController@show')->name('post.show');
+});
+
 /*
  * These frontend controllers require the user to be logged in
  * All route names are prefixed with 'frontend.'

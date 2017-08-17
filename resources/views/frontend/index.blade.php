@@ -85,7 +85,7 @@
                             </section>
 
                             <section class="col-md-4 bottommargin">
-                                <i class="i-plain color i-large icon-line2-energy inline-block" style="margin-bottom: 15px;"></i>
+                                <i class="i-plain color i-large icon-line2-heart inline-block" style="margin-bottom: 15px;"></i>
                                 <header class="heading-block nobottomborder" style="margin-bottom: 15px;">
                                     <h4>Criação</h4>
                                 </header>
@@ -93,7 +93,7 @@
                             </section>
 
                             <section class="col-md-4 bottommargin">
-                                <i class="i-plain color i-large icon-line2-equalizer inline-block" style="margin-bottom: 15px;"></i>
+                                <i class="i-plain color i-large icon-line2-layers inline-block" style="margin-bottom: 15px;"></i>
                                 <header class="heading-block nobottomborder" style="margin-bottom: 15px;">
                                     <h4>Vantagens</h4>
                                 </header>
@@ -123,7 +123,8 @@
                         @foreach($products as $product)
                             <article class="product clearfix" itemscope itemtype="https://schema.org/Product">
                                 <div class="product-image">
-                                    <a title="{{ $product->name }}" href="{{ route('frontend.product', $product->id) }}" itemprop="url"><img src="{{ $product->getImageUrl('cover') }}" alt="{{ $product->name }}" itemprop="image" /></a>
+                                    <a title="{{ $product->name }}" href="{{ route('frontend.product', $product->id) }}" itemprop="url">
+                                      <img src="{{ $product->getImageUrl('cover') }}" alt="{{ $product->name }}" itemprop="image" /></a>
 
                                     {{ $product->hasSale() }}
 
@@ -163,6 +164,7 @@
                 </section>
             @endif
 
+            @if ($posts->count() > 0)
             <!-- #blog -->
             <section>
                 <header class="section notopmargin notopborder">
@@ -174,27 +176,31 @@
                 </header>
                 <footer class="container clear-bottommargin clearfix">
                     <div class="row">
+                        @foreach ($posts as $post)
                         <article class="col-md-3 col-sm-6 bottommargin">
                             <div class="ipost clearfix">
                                 <div class="entry-image">
-                                    <a title="Bloomberg smart cities; change-makers economic security" href="#"><img class="image_fade" src="images/magazine/thumb/1.jpg" alt="Image"></a>
+                                    <a title="{{ str_limit($post->title, 60) }}" href="{{ route('frontend.post.show', $post->id) }}">
+                                      <img class="image_fade" src="{{ $post->getImageUrl('post') }}" alt="{{ str_limit($post->title, 60) }}">
+                                    </a>
                                 </div>
                                 <div class="entry-title">
-                                    <h3><a title="Bloomberg smart cities; change-makers economic security" href="blog-single.html">Bloomberg smart cities; change-makers economic security</a></h3>
+                                    <h3><a title="{{ str_limit($post->title, 60) }}" href="{{ route('frontend.post.show', $post->id) }}">
+                                      {{ str_limit($post->title, 60) }}</a></h3>
                                 </div>
                                 <ul class="entry-meta clearfix">
-                                    <li><i class="icon-calendar3"></i> 13th Jun 2014</li>
-                                    <li><a title="Comentários" href="blog-single.html#comments"><i class="icon-comments"></i> 53</a></li>
+                                    <li><i class="icon-calendar3"></i> {{ $post->created_at }}</li>
                                 </ul>
                                 <div class="entry-content">
-                                    <p>Prevention effect, advocate dialogue rural development lifting people up community civil society. Catalyst, grantees leverage.</p>
+                                    <p>{{ str_limit($post->body, 120) }}</p>
                                 </div>
                             </div>
                         </article>
-
+                        @endforeach
                     </div>
                 </footer>
             </section>
+            @endif
         </div>
     </div>
 @endsection

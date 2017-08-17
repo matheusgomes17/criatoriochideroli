@@ -23,7 +23,7 @@ class PostEventListener
             ->withIcon('plus')
             ->withClass('bg-green')
             ->withAssets([
-                'post_link' => ['admin.blog.post.show', $event->post->name, $event->post->id],
+                'post_link' => ['admin.blog.post.show', $event->post->title, $event->post->id],
             ])
             ->log();
     }

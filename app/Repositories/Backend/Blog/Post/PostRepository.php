@@ -32,20 +32,14 @@ class PostRepository extends BaseRepository
     public function create($input)
     {
         $data = $input['data'];
-        $post = $this->createPostStub($data);
-
-        if (is_null($post->category_id)) {
-            throw new GeneralException(trans('exceptions.backend.blog.posts.category_error'));
-        }
+        $post = $this->createStub($data);
 
         DB::transaction(function () use ($post, $data) {
-
-            $post->category_main_id = $post->categories->parent->id;
 
             if ($post->save()) {
 
                 $image = new AttacherModel();
-                $image->setupFile($data['cover']);
+                $image->setupFile($data['cover'], 'blog');
                 $image->subject_id = $post->id;
                 $image->subject_type = self::MODEL;
                 $image->file_name = str_random(56) . '.' . $image->file_extension;
@@ -222,19 +216,14 @@ class PostRepository extends BaseRepository
      */
     protected function createStub($input)
     {
-        $post                = self::MODEL;
-        $post                = new $post;
-        $post->name          = $input['name'];
-        $post->slug          = str_slug($input['name']);
-        $post->code          = $input['code'];
-        $post->height        = (int) $input['height'];
-        $post->color         = $input['color'];
-        $post->weight        = (int) $input['weight'];
-        $post->birthday      = $input['birthday'];
-        $post->description   = $input['description'];
-        $post->user_id       = auth()->user()->id;
-        $post->category_id   = $input['category_id'];
-        $post->sold          = isset($input['sold']) ? true : false;
+        $post                   = self::MODEL;
+        $post                   = new $post;
+        $post->user_id          = (int) auth()->user()->id;
+        $post->title            = (string) $input['title'];
+        $post->slug             = (string) str_slug($input['title']);
+        $post->subtitle         = (string) $input['subtitle'];
+        $post->body             = (string) $input['body'];
+        $post->meta_description = (string) $input['meta_description'];
 
         return $post;
     }

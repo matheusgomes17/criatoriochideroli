@@ -53,6 +53,11 @@ return [
             'created' => 'orçamento criado',
             'responded' => 'orçamento respondido',
         ],
+        'posts' => [
+            'created' => 'postagem criada',
+            'deleted' => 'postagem apagada',
+            'updated' => 'postagem atualizada',
+        ],
         'contacts' => [
             'created' => 'respondeu o contato de',
         ],

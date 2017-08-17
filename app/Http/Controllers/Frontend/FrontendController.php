@@ -5,6 +5,7 @@ namespace SKT\Http\Controllers\Frontend;
 use SKT\Http\Controllers\Controller;
 use SKT\Repositories\Backend\Catalog\Category\CategoryRepository;
 use SKT\Repositories\Backend\Catalog\Product\ProductRepository;
+use SKT\Repositories\Backend\Blog\Post\PostRepository;
 use SKT\Repositories\Frontend\System\Newsletter\NewsletterRepository;
 use SKT\Repositories\Backend\System\Gallery\GalleryRepository;
 use SKT\Http\Requests\Frontend\Search\SearchRequest;
@@ -25,15 +26,33 @@ class FrontendController extends Controller
     protected $products;
 
     /**
+     * @var NewsletterRepository
+     */
+    protected $newsletters;
+
+    /**
+     * @var PostRepository
+     */
+    protected $posts;
+
+    /**
      * FrontendController constructor.
      * @param CategoryRepository $categories
      * @param ProductRepository $products
+     * @param NewsletterRepository $products
+     * @param PostRepository $products
      */
-    public function __construct(CategoryRepository $categories, ProductRepository $products, NewsletterRepository $newsletters)
+    public function __construct(
+      CategoryRepository $categories,
+      ProductRepository $products,
+      NewsletterRepository $newsletters,
+      PostRepository $posts
+    )
     {
         $this->categories = $categories;
         $this->products = $products;
         $this->newsletters = $newsletters;
+        $this->posts = $posts;
     }
 
     /**
@@ -42,8 +61,9 @@ class FrontendController extends Controller
     public function index()
     {
         $products = $this->products->getAll();
+        $posts = $this->posts->getAll();
 
-        return view('frontend.index', compact('products'));
+        return view('frontend.index', compact('products', 'posts'));
     }
 
     /**
@@ -86,7 +106,7 @@ class FrontendController extends Controller
     {
         $keyword = $request->input('search');
         $search = \SKT\Models\Catalog\Product\Product::search($keyword, null, true)->paginate(12);
-        
+
         return view('frontend.search', compact('keyword', 'search'));
     }
 

@@ -168,7 +168,7 @@ return [
                 'management' => 'Gerenciado Postagens',
                 'table' => [
                     'id' => 'ID.',
-                    'title' => 'Nome',
+                    'title' => 'Título',
                     'create' => 'Criado em',
                     'last_updated' => 'Última atualização',
                 ],

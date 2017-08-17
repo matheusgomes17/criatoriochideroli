@@ -35,7 +35,7 @@
         <script>window.Laravel = <?php echo json_encode(['csrfToken' => csrf_token(),]); ?></script>
     </head>
     <body class="stretched">
-        <div id="wrapper" class="clearfix">
+        <!--<div id="wrapper" class="clearfix">-->
             @include('includes.partials.logged-in-as')
             @include('frontend.includes.nav')
 
@@ -46,7 +46,7 @@
         </div><!--#wrapper-->
 
         <div id="gotoTop" class="icon-angle-up"></div>
-        
+
         <!-- Scripts -->
         <script src="{{ asset('js/frontend/jquery.js') }}"></script>
         <script src="{{ asset('js/frontend/plugins.js') }}"></script>

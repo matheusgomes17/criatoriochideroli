@@ -43,14 +43,12 @@
 							<li><i class="fa fa-angle-double-right"></i> <a title="Sobre Nós" href="{{ route('frontend.about') }}">Sobre Nós</a></li>
 							<li><i class="fa fa-angle-double-right"></i> <a title="Galeria" href="{{ route('frontend.gallery') }}">Galeria</a></li>
 
-		                    @foreach(getMenuCategories() as $navigation)
-
-			                    <li><b>{{ $navigation->name }}</b></li>
-	                            @foreach($navigation->children as $subNavigation)
-	                            <li><i class="fa fa-angle-double-right"></i> <a title="{{ $subNavigation->name }}" href="{{ route('frontend.category', $subNavigation->id) }}">{{ $subNavigation->name }}</a></li>
-	                            @endforeach
-
-		                    @endforeach
+              @foreach(getMenuCategories() as $navigation)
+                <li><b>{{ $navigation->name }}</b></li>
+                  @foreach($navigation->children as $subNavigation)
+                  	<li><i class="fa fa-angle-double-right"></i> <a title="{{ $subNavigation->name }}" href="{{ route('frontend.category', $subNavigation->id) }}">{{ $subNavigation->name }}</a></li>
+                  @endforeach
+              @endforeach
 						</ul>
 
 					</div>
@@ -61,44 +59,20 @@
 						<h4>Postagens Recentes</h4>
 
 						<div id="post-list-footer">
+							@foreach (getAllPosts() as $footerPost)
 							<article class="spost clearfix">
 								<div class="entry-c">
 									<header class="entry-title">
-										<h5><a href="#">Lorem ipsum dolor sit amet, consectetur</a></h5>
+										<h5><a href="{{ route('frontend.post.show', $footerPost->id) }}">{{ str_limit($footerPost->title, 60) }}</a></h5>
 									</header>
 									<footer>
 										<ul class="entry-meta">
-											<li>10th July 2014</li>
+											<li>{{ $footerPost->created_at }}</li>
 										</ul>
 									</footer>
 								</div>
 							</article>
-
-							<article class="spost clearfix">
-								<div class="entry-c">
-									<header class="entry-title">
-										<h5><a href="#">Elit Assumenda vel amet dolorum quasi</a></h5>
-									</header>
-									<footer>
-										<ul class="entry-meta">
-											<li>10th July 2014</li>
-										</ul>
-									</footer>
-								</div>
-							</article>
-
-							<article class="spost clearfix">
-								<div class="entry-c">
-									<header class="entry-title">
-										<h5><a href="#">Debitis nihil placeat, illum est nisi</a></h5>
-									</header>
-									<footer>
-										<ul class="entry-meta">
-											<li>10th July 2014</li>
-										</ul>
-									</footer>
-								</div>
-							</article>
+							@endforeach
 						</div>
 					</div>
 
@@ -134,18 +108,18 @@
 					<div class="row">
 
 						<div class="col-md-6 clearfix bottommargin-sm">
-							<a href="#" class="social-icon si-dark si-colored si-facebook nobottommargin" style="margin-right: 10px;">
+							<a href="{{ env('FACEBOOK_SOCIAL_LINK') }}" title="Curtir no Facebook" target="_blank" class="social-icon si-dark si-colored si-facebook nobottommargin" style="margin-right: 10px;">
 								<i class="icon-facebook"></i>
 								<i class="icon-facebook"></i>
 							</a>
-							<a href="#"><small style="display: block; margin-top: 3px;"><strong>Curtir</strong><br>no Facebook</small></a>
+							<a href="{{ env('FACEBOOK_SOCIAL_LINK') }}" title="Curtir no Facebook" target="_blank"><small style="display: block; margin-top: 3px;"><strong>Curtir</strong><br>no Facebook</small></a>
 						</div>
 						<div class="col-md-6 clearfix">
 							<a href="#" class="social-icon si-dark si-colored si-rss nobottommargin" style="margin-right: 10px;">
 								<i class="icon-rss"></i>
 								<i class="icon-rss"></i>
 							</a>
-							<a href="#"><small style="display: block; margin-top: 3px;"><strong>Se Inscreva</strong><br>para receber RSS</small></a>
+							<a href="#" title="Se Inscreva para receber RSS"><small style="display: block; margin-top: 3px;"><strong>Se Inscreva</strong><br>para receber RSS</small></a>
 						</div>
 
 					</div>
@@ -164,17 +138,17 @@
 
 			<div class="col_half col_last tright">
 				<div class="fright clearfix">
-					<a href="https://www.facebook.com/" title="Curta no Facebook" rel="nofollow" class="social-icon si-small si-borderless si-facebook" itemprop="url">
+					<a href="{{ env('FACEBOOK_SOCIAL_LINK') }}" target="_blank" title="Curta no Facebook" rel="nofollow" class="social-icon si-small si-borderless si-facebook" itemprop="url">
 						<i class="icon-facebook"></i>
 						<i class="icon-facebook"></i>
 					</a>
 
-					<a href="https://www.twitter.com/" title="Faça um Twitter!" rel="nofollow" class="social-icon si-small si-borderless si-twitter" itemprop="url">
+					<a href="{{ env('TWITTER_SOCIAL_LINK') }}" target="_blank" title="Faça um Twitter!" rel="nofollow" class="social-icon si-small si-borderless si-twitter" itemprop="url">
 						<i class="icon-twitter"></i>
 						<i class="icon-twitter"></i>
 					</a>
 
-					<a href="https://www.plus.google.com/" title="Acesse o Google+" rel="nofollow" class="social-icon si-small si-borderless si-gplus" itemprop="url">
+					<a href="{{ env('GOOGLEPLUS_SOCIAL_LINK') }}" target="_blank" title="Acesse o Google+" rel="nofollow" class="social-icon si-small si-borderless si-gplus" itemprop="url">
 						<i class="icon-gplus"></i>
 						<i class="icon-gplus"></i>
 					</a>

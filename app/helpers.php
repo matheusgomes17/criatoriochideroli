@@ -113,6 +113,14 @@ if (! function_exists('homeRoute')) {
     }
 }
 
+if (! function_exists('getAllPosts')) {
+
+    function getAllPosts()
+    {
+        return \SKT\Models\Blog\Post\Post::orderBy('id', 'desc')->paginate(3);
+    }
+}
+
 if (! function_exists('getMenuCategories')) {
 
     function getMenuCategories()
@@ -132,7 +140,7 @@ if (! function_exists('getCartSession')) {
         } else {
             $cart = session()->get('cart');
         }
-        
+
         return $cart;
     }
 }

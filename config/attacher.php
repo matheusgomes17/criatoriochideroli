@@ -23,5 +23,12 @@ return [
                 return $image;
             },
         ],
+        'blog' => [
+            'post' => function ($image) {
+                $image->resize(400, 300);
+
+                return $image;
+            },
+        ],
     ],
 ];
