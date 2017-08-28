@@ -126,7 +126,7 @@
                                     <a title="{{ $product->name }}" href="{{ route('frontend.product', $product->id) }}" itemprop="url">
                                       <img src="{{ $product->getImageUrl('cover') }}" alt="{{ $product->name }}" itemprop="image" /></a>
 
-                                    {{ $product->hasSale() }}
+                                    {!! $product->hasSale() !!}
 
                                     <div class="product-overlay">
                                         <a title="Adicionar ao Carrinho" href="{{ route('frontend.cart.store', $product->id) }}" class="add-to-cart"><i class="icon-shopping-cart"></i><span> Adicionar ao Carrinho</span></a>

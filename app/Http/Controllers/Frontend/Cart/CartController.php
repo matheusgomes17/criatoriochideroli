@@ -2,6 +2,8 @@
 
 namespace SKT\Http\Controllers\Frontend\Cart;
 
+use Artesaos\SEOTools\Traits\SEOTools;
+use SKT\Http\Controllers\Traits\HasDefaultSEO;
 use SKT\Http\Controllers\Controller;
 use SKT\Repositories\Frontend\Catalog\Cart\CartRepository;
 
@@ -10,6 +12,8 @@ use SKT\Repositories\Frontend\Catalog\Cart\CartRepository;
  */
 class CartController extends Controller
 {
+    use SEOTools, HasDefaultSEO;
+
     /**
      * @var CartRepository
      */
@@ -28,6 +32,15 @@ class CartController extends Controller
      */
     public function index()
     {
+        $route = route('frontend.cart.index');
+
+        $this->seo()->setTitle('Carrinho de Orçamento');
+        $this->seo()->setDescription('');
+        $this->seo()->opengraph()->setUrl($route);
+        $this->seo()->twitter()->setUrl($route);
+
+        $this->getDefaultSEO();
+
         return view('frontend.cart.index');
     }
 

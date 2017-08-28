@@ -1,4 +1,4 @@
-<header id="header" class="transparent-header full-header" data-sticky-class="not-dark">
+<header id="header" class="full-header">
     <div id="header-wrap">
         <div class="container clearfix">
 
@@ -8,7 +8,7 @@
                 <h1 class="font-no-size">{{ app_name() }}</h1>
 
                 <a title="{{ app_name() }}" href="{{ route('frontend.index') }}" class="standard-logo"
-                data-dark-logo="/img/frontend/logo-dark.png"><img src="/img/frontend/logo.png" alt="{{ app_name() }}"></a>
+                data-dark-logo="/img/frontend/logo-dark.png"><img src="/img/frontend/logo.png" alt="{{ app_name() }}" style="padding: 4px 0;"></a>
                 <a title="{{ app_name() }}" href="{{ route('frontend.index') }}" class="retina-logo"
                 data-dark-logo="/img/frontend/logo-dark@2x.png"><img src="/img/frontend/logo@2x.png" alt="{{ app_name() }}"></a>
             </div><!-- #logo end -->

@@ -68,7 +68,7 @@
             @role(1)
             <li class="{{ active_class(Active::checkUriPattern('admin/catalog/*')) }} treeview">
                 <a href="#">
-                    <i class="fa fa-window-restore"></i>
+                    <i class="fa fa-shopping-cart"></i>
                     <span>{{ trans('menus.backend.catalog.title') }}</span>
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
@@ -101,7 +101,7 @@
             @role(1)
             <li class="{{ active_class(Active::checkUriPattern('admin/blog/post')) }}">
                 <a href="{{ route('admin.blog.post.index') }}">
-                    <i class="fa fa-address-card-o"></i>
+                    <i class="fa fa-book"></i>
                     <span>Gerenciando Postagens</span>
                 </a>
             </li>

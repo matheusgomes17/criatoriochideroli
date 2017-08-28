@@ -2,8 +2,10 @@
 
 @section ('title', trans('labels.backend.blog.posts.management') . ' | ' . trans('labels.backend.blog.posts.create'))
 
-@section('after-styles')
-@endsection
+@section ('after-styles')
+	<!-- CK Editor -->
+	<link href="{{ asset('css/backend/plugin/wysihtml5/bootstrap3-wysihtml5.min.css') }}" rel="stylesheet">
+@stop
 
 @section('page-header')
     <h1>
@@ -54,7 +56,7 @@
                     {{ Form::label('body', trans('validation.attributes.backend.blog.posts.body') . '*', ['class' => 'col-lg-2 control-label']) }}
 
                     <div class="col-lg-10">
-                        {{ Form::textarea('body', null, ['class' => 'form-control', 'placeholder' => trans('validation.attributes.backend.blog.posts.body')]) }}
+                        {{ Form::textarea('body', null, ['class' => 'form-control textarea', 'style' => 'width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;', 'placeholder' => trans('validation.attributes.backend.blog.posts.body')]) }}
                     </div><!--col-lg-10-->
                 </div><!--form control-->
 
@@ -85,5 +87,8 @@
     {{ Form::close() }}
 @endsection
 
-@section('after-scripts')
-@endsection
+@section ('after-scripts')
+	<!-- CK Editor -->
+	<script src="{{ asset('js/backend/plugin/wysihtml5/bootstrap3-wysihtml5.all.min.js') }}"></script>
+	<script>$(function () {	$(".textarea").wysihtml5();	});</script>
+@stop

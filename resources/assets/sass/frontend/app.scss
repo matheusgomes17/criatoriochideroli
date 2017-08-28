@@ -19,6 +19,9 @@
 // Pages
 @import "pages/dashboard";
 
+// Theme
+@import "themes/canvas/theme";
+
 // Plugins
 @import "../plugin/toastr/toastr.scss";
 @import "../plugin/sweetalert/sweetalert.scss";

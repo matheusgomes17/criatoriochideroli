@@ -2,6 +2,8 @@
 
 namespace SKT\Http\Controllers\Frontend\Auth;
 
+use Artesaos\SEOTools\Traits\SEOTools;
+use SKT\Http\Controllers\Traits\HasDefaultSEO;
 use SKT\Helpers\Auth\Auth;
 use Illuminate\Http\Request;
 use SKT\Exceptions\GeneralException;
@@ -16,7 +18,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
  */
 class LoginController extends Controller
 {
-    use AuthenticatesUsers;
+    use AuthenticatesUsers, SEOTools, HasDefaultSEO;
 
     /**
      * Where to redirect users after login.
@@ -35,6 +37,15 @@ class LoginController extends Controller
      */
     public function showLoginForm()
     {
+        $route = route('frontend.auth.login');
+
+        $this->seo()->setTitle('Entrar');
+        $this->seo()->setDescription('This is my page description');
+        $this->seo()->opengraph()->setUrl($route);
+        $this->seo()->twitter()->setUrl($route);
+
+        $this->getDefaultSEO();
+
         return view('frontend.auth.login')
             ->withSocialiteLinks((new Socialite())->getSocialLinks());
     }

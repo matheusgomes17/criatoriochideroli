@@ -46,7 +46,7 @@
                         {{ Form::select('category_id', $products, null, ['class' => 'form-control']) }}
                     </div><!--col-lg-10-->
                 </div><!--form control-->
-                
+
                 <div class="form-group">
                     {{ Form::label('code', trans('validation.attributes.backend.catalog.products.code'), ['class' => 'col-lg-2 control-label']) }}
 
@@ -54,15 +54,15 @@
                         {{ Form::text('code', null, ['class' => 'form-control', 'placeholder' => trans('validation.attributes.backend.catalog.products.code')]) }}
                     </div><!--col-lg-10-->
                 </div><!--form control-->
-                
+
                 <div class="form-group">
                     {{ Form::label('height', trans('validation.attributes.backend.catalog.products.height') . '*', ['class' => 'col-lg-2 control-label']) }}
 
                     <div class="col-lg-10">
-                        {{ Form::number('height', null, ['class' => 'form-control', 'placeholder' => trans('validation.attributes.backend.catalog.products.height')]) }}
+                        {{ Form::text('height', null, ['class' => 'form-control', 'placeholder' => trans('validation.attributes.backend.catalog.products.height')]) }}
                     </div><!--col-lg-10-->
                 </div><!--form control-->
-                
+
                 <div class="form-group">
                     {{ Form::label('color', trans('validation.attributes.backend.catalog.products.color'), ['class' => 'col-lg-2 control-label']) }}
 
@@ -70,12 +70,12 @@
                         {{ Form::text('color', null, ['class' => 'form-control', 'placeholder' => trans('validation.attributes.backend.catalog.products.color')]) }}
                     </div><!--col-lg-10-->
                 </div><!--form control-->
-                
+
                 <div class="form-group">
                     {{ Form::label('weight', trans('validation.attributes.backend.catalog.products.weight'), ['class' => 'col-lg-2 control-label']) }}
 
                     <div class="col-lg-10">
-                        {{ Form::number('weight', null, ['class' => 'form-control', 'placeholder' => trans('validation.attributes.backend.catalog.products.weight')]) }}
+                        {{ Form::text('weight', null, ['class' => 'form-control', 'placeholder' => trans('validation.attributes.backend.catalog.products.weight')]) }}
                     </div><!--col-lg-10-->
                 </div><!--form control-->
 

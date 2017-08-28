@@ -2,6 +2,8 @@
 
 namespace SKT\Http\Controllers\Frontend\Auth;
 
+use Artesaos\SEOTools\Traits\SEOTools;
+use SKT\Http\Controllers\Traits\HasDefaultSEO;
 use SKT\Http\Controllers\Controller;
 use SKT\Events\Frontend\Auth\UserRegistered;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -13,7 +15,7 @@ use SKT\Repositories\Frontend\Access\User\UserRepository;
  */
 class RegisterController extends Controller
 {
-    use RegistersUsers;
+    use RegistersUsers, SEOTools, HasDefaultSEO;
 
     /**
      * @var UserRepository
@@ -40,6 +42,15 @@ class RegisterController extends Controller
      */
     public function showRegistrationForm()
     {
+        $route = route('frontend.auth.register');
+
+        $this->seo()->setTitle('Registrar');
+        $this->seo()->setDescription('This is my page description');
+        $this->seo()->opengraph()->setUrl($route);
+        $this->seo()->twitter()->setUrl($route);
+
+        $this->getDefaultSEO();
+
         return view('frontend.auth.register');
     }
 
@@ -51,12 +62,12 @@ class RegisterController extends Controller
     public function register(RegisterRequest $request)
     {
         if (config('access.users.confirm_email')) {
-            $user = $this->user->create($request->only('first_name', 'last_name', 'email', 'password'));
+            $user = $this->user->create($request->only('first_name', 'last_name', 'email', 'password', 'ddd', 'phone'));
             event(new UserRegistered($user));
 
             return redirect($this->redirectPath())->withFlashSuccess(trans('exceptions.frontend.auth.confirmation.created_confirm'));
         } else {
-            access()->login($this->user->create($request->only('first_name', 'last_name', 'email', 'password')));
+            access()->login($this->user->create($request->only('first_name', 'last_name', 'email', 'password', 'ddd', 'phone')));
             event(new UserRegistered(access()->user()));
 
             return redirect($this->redirectPath());

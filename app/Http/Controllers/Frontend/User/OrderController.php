@@ -2,6 +2,8 @@
 
 namespace SKT\Http\Controllers\Frontend\User;
 
+use Artesaos\SEOTools\Traits\SEOTools;
+use SKT\Http\Controllers\Traits\HasDefaultSEO;
 use SKT\Http\Controllers\Controller;
 use SKT\Repositories\Frontend\Catalog\Order\OrderRepository;
 
@@ -10,6 +12,8 @@ use SKT\Repositories\Frontend\Catalog\Order\OrderRepository;
  */
 class OrderController extends Controller
 {
+    use SEOTools, HasDefaultSEO;
+
     /**
      * @var OrderRepository
      */
@@ -31,6 +35,16 @@ class OrderController extends Controller
     public function show($id)
     {
 	    $order = $this->orders->find($id);
+      $route = route('frontend.user.account');
+
+      $this->seo()->setTitle('Orçamento #00' . $order->id);
+      $this->seo()->setDescription('This is my page description');
+      $this->seo()->opengraph()->setUrl($route)
+          ->addImage(url('/img/frontend/footer-logo.png'), ['height' => 200, 'width' => 206]);
+      $this->seo()->twitter()->setUrl($route)
+          ->addImage(url('/img/frontend/footer-logo.png'), ['height' => 200, 'width' => 206]);
+
+      $this->getDefaultSEO();
 
     	if ($order->user_id == auth()->user()->id) {
 

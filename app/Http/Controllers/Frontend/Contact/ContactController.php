@@ -2,6 +2,8 @@
 
 namespace SKT\Http\Controllers\Frontend\Contact;
 
+use Artesaos\SEOTools\Traits\SEOTools;
+use SKT\Http\Controllers\Traits\HasDefaultSEO;
 use SKT\Http\Controllers\Controller;
 use SKT\Http\Requests\Frontend\Contact\StoreContactRequest;
 use SKT\Repositories\Frontend\System\Contact\ContactRepository;
@@ -11,6 +13,8 @@ use SKT\Repositories\Frontend\System\Contact\ContactRepository;
  */
 class ContactController extends Controller
 {
+    use SEOTools, HasDefaultSEO;
+
     /**
      * @var ContactRepository
      */
@@ -29,6 +33,17 @@ class ContactController extends Controller
      */
     public function index()
     {
+        $route = route('frontend.contact.index');
+
+        $this->seo()->setTitle('Contato');
+        $this->seo()->setDescription('This is my page description');
+        $this->seo()->opengraph()->setUrl($route)
+            ->addImage(url('/img/frontend/footer-logo.png'), ['height' => 200, 'width' => 206]);
+        $this->seo()->twitter()->setUrl($route)
+            ->addImage(url('/img/frontend/footer-logo.png'), ['height' => 200, 'width' => 206]);
+
+        $this->getDefaultSEO();
+
         return view('frontend.contact');
     }
 

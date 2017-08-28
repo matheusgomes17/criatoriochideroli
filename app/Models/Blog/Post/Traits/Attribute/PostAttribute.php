@@ -41,6 +41,14 @@ trait PostAttribute
     /**
      * @return string
      */
+    public function getRestoreButtonAttribute()
+    {
+        return '<a href="'.route('admin.blog.post.restore', $this).'" name="restore_post" class="btn btn-xs btn-info"><i class="fa fa-refresh" data-toggle="tooltip" data-placement="top" title="'.trans('buttons.backend.blog.post.restore_post').'"></i></a> ';
+    }
+
+    /**
+     * @return string
+     */
     public function getDeletePermanentlyButtonAttribute()
     {
         return '<a href="'.route('admin.blog.post.delete-permanently', $this).'" name="delete_post_perm" class="btn btn-xs btn-danger"><i class="fa fa-trash" data-toggle="tooltip" data-placement="top" title="'.trans('buttons.backend.blog.posts.delete_permanently').'"></i></a> ';
@@ -51,6 +59,11 @@ trait PostAttribute
      */
     public function getActionButtonsAttribute()
     {
+        if ($this->trashed()) {
+            return $this->getRestoreButtonAttribute().
+                $this->getDeletePermanentlyButtonAttribute();
+        }
+
         return
             $this->getShowButtonAttribute().
             $this->getEditButtonAttribute().

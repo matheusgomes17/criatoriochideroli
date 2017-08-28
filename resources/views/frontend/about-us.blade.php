@@ -2,16 +2,16 @@
 
 @section('content')
     <div id="page-title" class="page-title-parallax page-title-dark" style="padding: 250px 0; background-image: url('images/about/parallax.jpg'); background-size: cover; background-position: center center;" data-stellar-background-ratio="0.4">
-
         <div class="container clearfix">
+
             <p>Sobre Nós</p>
             <span>Tudo o que você precisa saber sobre o {{ app_name() }}</span>
             <ol class="breadcrumb">
                 <li><a title="Início" href="{{ route('frontend.index') }}">Início</a></li>
                 <li class="active">Sobre Nós</li>
             </ol>
-        </div>
 
+        </div>
     </div><!-- #page-title end -->
 
     <div id="content">
@@ -51,7 +51,7 @@
 
             <section class="row common-height clearfix">
 
-                <div class="col-sm-5 col-padding" style="background: url('images/team/3.jpg') center center no-repeat; background-size: cover;"></div>
+                <div class="col-sm-5 col-padding" style="background: url('img/frontend/junior.jpg') center center no-repeat; background-size: cover;"></div>
 
                 <div class="col-sm-7 col-padding">
                     <div>
@@ -61,7 +61,6 @@
                         </div>
 
                         <div class="row clearfix">
-
                             <div class="col-md-12">
                                 <p>Employment respond committed meaningful fight against oppression social challenges rural legal aid governance. Meaningful work, implementation, process cooperation, campaign inspire.</p>
                                 <p>Advancement, promising development John Lennon, our ambitions involvement underprivileged billionaire philanthropy save the world transform. Carbon rights maintain healthcare emergent, implementation inspire social change solve clean water livelihoods.</p>
@@ -80,10 +79,8 @@
                             </div>
 
                         </div>
-
                     </div>
                 </div>
-
             </section>
 
             <section class="section footer-stick">
@@ -95,7 +92,7 @@
                         <div class="slider-wrap">
                             <article class="slide">
                                 <div class="testi-image">
-                                    <a title="Steve Jobs" href="#"><img src="images/testimonials/3.jpg" alt="Customer Testimonails"></a>
+                                    <a title="Steve Jobs" href="#"><img src="img/frontend/person.png" alt="Customer Testimonails"></a>
                                 </div>
                                 <div class="testi-content">
                                     <p>Similique fugit repellendus expedita excepturi iure perferendis provident quia eaque. Repellendus, vero numquam?</p>
@@ -107,7 +104,7 @@
                             </article>
                             <article class="slide">
                                 <div class="testi-image">
-                                    <a title="Collis Ta'eed" href="#"><img src="images/testimonials/2.jpg" alt="Customer Testimonails"></a>
+                                    <a title="Collis Ta'eed" href="#"><img src="img/frontend/person.png" alt="Customer Testimonails"></a>
                                 </div>
                                 <div class="testi-content">
                                     <p>Natus voluptatum enim quod necessitatibus quis expedita harum provident eos obcaecati id culpa corporis molestias.</p>
@@ -119,7 +116,7 @@
                             </article>
                             <article class="slide">
                                 <div class="testi-image">
-                                    <a title="John Doe" href="#"><img src="images/testimonials/1.jpg" alt="Customer Testimonails"></a>
+                                    <a title="John Doe" href="#"><img src="img/frontend/person.png" alt="Customer Testimonails"></a>
                                 </div>
                                 <div class="testi-content">
                                     <p>Incidunt deleniti blanditiis quas aperiam recusandae consequatur ullam quibusdam cum libero illo rerum!</p>

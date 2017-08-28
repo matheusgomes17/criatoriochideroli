@@ -2,6 +2,8 @@
 
 namespace SKT\Http\Controllers\Frontend;
 
+use Artesaos\SEOTools\Traits\SEOTools;
+use SKT\Http\Controllers\Traits\HasDefaultSEO;
 use SKT\Http\Controllers\Controller;
 use SKT\Repositories\Backend\Catalog\Category\CategoryRepository;
 use SKT\Repositories\Backend\Catalog\Product\ProductRepository;
@@ -15,6 +17,8 @@ use SKT\Http\Requests\Frontend\Search\SearchRequest;
  */
 class FrontendController extends Controller
 {
+    use SEOTools, HasDefaultSEO;
+
     /**
      * @var CategoryRepository
      */
@@ -62,6 +66,16 @@ class FrontendController extends Controller
     {
         $products = $this->products->getAll();
         $posts = $this->posts->getAll();
+        $route = route('frontend.index');
+
+        $this->seo()->setTitle('Início');
+        $this->seo()->setDescription('This is my page description');
+        $this->seo()->opengraph()->setUrl($route)
+            ->addImage(url('/img/frontend/footer-logo.png'), ['height' => 200, 'width' => 206]);
+        $this->seo()->twitter()->setUrl($route)
+            ->addImage(url('/img/frontend/footer-logo.png'), ['height' => 200, 'width' => 206]);
+
+        $this->getDefaultSEO();
 
         return view('frontend.index', compact('products', 'posts'));
     }
@@ -71,6 +85,17 @@ class FrontendController extends Controller
      */
     public function about()
     {
+        $route = route('frontend.about');
+
+        $this->seo()->setTitle('Sobre Nós');
+        $this->seo()->setDescription('This is my page description');
+        $this->seo()->opengraph()->setUrl($route)
+            ->addImage(url('/img/frontend/footer-logo.png'), ['height' => 200, 'width' => 206]);
+        $this->seo()->twitter()->setUrl($route)
+            ->addImage(url('/img/frontend/footer-logo.png'), ['height' => 200, 'width' => 206]);
+
+        $this->getDefaultSEO();
+
         return view('frontend.about-us');
     }
 
@@ -82,6 +107,14 @@ class FrontendController extends Controller
     {
         $category = $this->categories->find($id);
         $products = (! is_null($category->parent)) ? $category->products()->inRandomOrder()->paginate(12) : $category->allproducts()->inRandomOrder()->paginate(12);
+        $route = route('frontend.category', $category->id);
+
+        $this->seo()->setTitle($category->name . ' Indio Gigante');
+        $this->seo()->setDescription($category->description);
+        $this->seo()->opengraph()->setUrl($route);
+        $this->seo()->twitter()->setUrl($route);
+        
+        $this->getDefaultSEO();
 
         return view('frontend.category', compact('category', 'products'));
     }
@@ -94,6 +127,16 @@ class FrontendController extends Controller
     {
         $product = $this->products->find($id);
         $relateds = $this->products->where('id', '<>', $id)->get();
+        $route = route('frontend.product', $product->id);
+
+        $this->seo()->setTitle('Indio Gigante ' . $product->name);
+        $this->seo()->setDescription($product->description);
+        $this->seo()->opengraph()->setUrl($route)
+            ->addImage($product->getImageUrl());
+        $this->seo()->twitter()->setUrl($route)
+            ->addImage($product->getImageUrl());
+
+        $this->getDefaultSEO();
 
         return view('frontend.product', compact('product', 'relateds'));
     }
@@ -106,6 +149,14 @@ class FrontendController extends Controller
     {
         $keyword = $request->input('search');
         $search = \SKT\Models\Catalog\Product\Product::search($keyword, null, true)->paginate(12);
+        $route = route('frontend.search');
+
+        $this->seo()->setTitle("Pesquisa por {$keyword}");
+        $this->seo()->setDescription('');
+        $this->seo()->opengraph()->setUrl($route);
+        $this->seo()->twitter()->setUrl($route);
+
+        $this->getDefaultSEO();
 
         return view('frontend.search', compact('keyword', 'search'));
     }
@@ -116,6 +167,15 @@ class FrontendController extends Controller
      */
     public function gallery(GalleryRepository $galleries)
     {
+        $route = route('frontend.product', $product->id);
+
+        $this->seo()->setTitle('Galeria de Imagens');
+        $this->seo()->setDescription('Veja as imagens das mais belas e rústicas aves de Indio Gigante do Criatório Chideroli');
+        $this->seo()->opengraph()->setUrl($route);
+        $this->seo()->twitter()->setUrl($route);
+
+        $this->getDefaultSEO();
+
         return view('frontend.gallery', compact('galleries'));
     }
 }

@@ -44,12 +44,11 @@ class ContactAnswerRepository extends BaseRepository
                 $contact->save();
 
                 event(new ContactAnswerCreated($answer));
-
-                return true;
             }
 
-
             $answer->notify(new UserAnswerContact($answer));
+
+            return true;
         });
     }
 

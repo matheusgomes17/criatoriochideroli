@@ -32,7 +32,7 @@
           </ul><!-- .entry-meta end -->
 
           <div class="entry-image bottommargin">
-            <img src="{{ $post->getImageUrl('post') }}" alt="{{ str_limit($post->title, 50) }}">
+            <img src="{{ $post->getImageUrl('original') }}" alt="{{ str_limit($post->title, 50) }}">
           </div><!-- .entry-image end -->
 
           <div class="entry-content notopmargin">
